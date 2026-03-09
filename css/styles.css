@@ -200,6 +200,9 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   html, body {
     background: #1B1B1B !important;
   }
+  body {
+    padding-top: 60px;
+  }
   .header-logo img {
     width: 60px;
   }
@@ -342,14 +345,13 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
 @media (max-width: 768px) {
   .hero {
-    min-height: 100vh;
-    min-height: 100dvh;
-    margin-top: calc(-1 * env(safe-area-inset-top, 0));
-    padding-top: env(safe-area-inset-top, 0);
+    min-height: calc(100vh - 60px);
+    min-height: calc(100dvh - 60px);
+    margin-top: 0;
     background: #1B1B1B;
   }
   .hero .hero-content {
-    top: calc(50% + 35px);
+    top: calc(50% + 20px);
     transform: translate(-50%, -50%);
   }
   #social-proof,
@@ -359,7 +361,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   #team,
   #gallery,
   #form-section {
-    scroll-margin-top: 80px;
+    scroll-margin-top: 70px;
   }
   .hero-video { display: none; }
   .hero-bg-mobile { display: none; }
