@@ -97,6 +97,21 @@
     philosophyCarousel.addEventListener('mouseenter', stopAutoplay);
     philosophyCarousel.addEventListener('mouseleave', startAutoplay);
 
+    // Touch swipe for mobile
+    var phTouchStartX = 0;
+    var phTouchEndX = 0;
+    philosophyCarousel.addEventListener('touchstart', function (e) {
+      phTouchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+    philosophyCarousel.addEventListener('touchend', function (e) {
+      phTouchEndX = e.changedTouches[0].screenX;
+      var diff = phTouchStartX - phTouchEndX;
+      if (Math.abs(diff) > 50) {
+        if (diff > 0) { goTo(current + 1); startAutoplay(); }
+        else { goTo(current - 1); startAutoplay(); }
+      }
+    }, { passive: true });
+
     startAutoplay();
   }
 
