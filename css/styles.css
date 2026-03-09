@@ -349,17 +349,19 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 @media (max-width: 1024px) {
   .hero {
     min-height: 0;
-    height: auto;
+    position: relative;
     background: #1B1B1B;
   }
   .hero-media { display: none; }
   .hero-bg-mobile { display: none; }
   .hero-bg-img-mobile {
     display: block;
+    position: relative;
     width: 100%;
     height: auto;
     vertical-align: top;
     z-index: 0;
+    object-fit: contain;
   }
   .hero-content {
     z-index: 1;
