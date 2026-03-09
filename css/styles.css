@@ -352,6 +352,13 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     position: relative;
     background: #1B1B1B;
   }
+  .hero-overlay-mobile {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.25);
+    z-index: 1;
+    pointer-events: none;
+  }
   .hero-media { display: none; }
   .hero-bg-mobile { display: none; }
   .hero-bg-img-mobile {
@@ -364,7 +371,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     object-fit: contain;
   }
   .hero-content {
-    z-index: 1;
+    z-index: 2;
     top: 0;
     left: 0;
     right: 0;
@@ -374,7 +381,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   }
   .hero-icon {
     position: absolute;
-    top: 18%;
+    top: 12%;
     left: 50%;
     transform: translateX(-50%);
     width: 120px;
@@ -382,16 +389,23 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   }
   .hero-title {
     position: absolute;
-    top: 28%;
+    top: 20%;
     left: 50%;
     transform: translateX(-50%);
     white-space: nowrap;
-    font-size: clamp(0.9rem, 3.5vw, 1.8rem);
+    font-size: clamp(1.1rem, 4.5vw, 2rem);
     color: #1B1B1B;
+  }
+  @media (max-width: 400px) {
+    .hero-title {
+      white-space: normal;
+      text-align: center;
+      max-width: 90%;
+    }
   }
   .hero-subtitle {
     position: absolute;
-    top: 72%;
+    top: 55%;
     left: 50%;
     transform: translateX(-50%);
     margin: 0;
@@ -547,7 +561,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   font-family: var(--font-body);
   font-size: clamp(1rem, 2vw, 1.25rem);
   font-weight: 400;
-  color: var(--color-primary);
+  color: #1B1B1B;
   margin: 0;
   letter-spacing: 0.02em;
 }
@@ -630,6 +644,35 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
 .carousel-btn-prev { left: 24px; }
 .carousel-btn-next { right: 24px; }
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  padding-bottom: 1.5rem;
+}
+
+.carousel-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  opacity: 0.5;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: opacity var(--transition);
+}
+
+.carousel-dot:hover {
+  opacity: 0.8;
+}
+
+.carousel-dot.active {
+  opacity: 1;
+  background: var(--color-cream);
+}
 
 .carousel-btn::before {
   content: '';
@@ -1293,7 +1336,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   font-size: 10px;
   font-weight: 400;
   text-align: center;
-  margin: 0 0 0.5rem 0;
+  margin: 0 0 0.25rem 0;
   padding: 0;
   opacity: 0.9;
 }
@@ -1302,7 +1345,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 3rem;
+  gap: 1rem;
 }
 
 .footer-logo {

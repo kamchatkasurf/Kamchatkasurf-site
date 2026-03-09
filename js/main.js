@@ -92,10 +92,40 @@
       }
     }
 
+    var dotsContainer = philosophyCarousel.querySelector('.carousel-dots');
+    function buildCarouselDots() {
+      if (!dotsContainer) return;
+      dotsContainer.innerHTML = '';
+      for (var d = 0; d < total; d++) {
+        var dot = document.createElement('button');
+        dot.type = 'button';
+        dot.className = 'carousel-dot' + (d === current ? ' active' : '');
+        dot.setAttribute('aria-label', 'Слайд ' + (d + 1));
+        (function (idx) {
+          dot.addEventListener('click', function () { goTo(idx); startAutoplay(); });
+        })(d);
+        dotsContainer.appendChild(dot);
+      }
+    }
+    function updateCarouselDots() {
+      if (dotsContainer) {
+        dotsContainer.querySelectorAll('.carousel-dot').forEach(function (d, i) {
+          d.classList.toggle('active', i === current);
+        });
+      }
+    }
+    goTo = function (index) {
+      current = (index + total) % total;
+      track.style.transform = 'translateX(-' + current * 100 + '%)';
+      updateCarouselDots();
+    };
+
     if (prevBtn) prevBtn.addEventListener('click', function () { goTo(current - 1); startAutoplay(); });
     if (nextBtn) nextBtn.addEventListener('click', function () { goTo(current + 1); startAutoplay(); });
     philosophyCarousel.addEventListener('mouseenter', stopAutoplay);
     philosophyCarousel.addEventListener('mouseleave', startAutoplay);
+
+    buildCarouselDots();
 
     // Touch swipe for mobile
     var phTouchStartX = 0;
