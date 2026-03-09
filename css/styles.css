@@ -198,6 +198,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   }
   body {
     padding-top: 70px;
+    background: #1B1B1B;
   }
   .header-logo img {
     width: 60px;
@@ -282,6 +283,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   display: none;
   position: absolute;
   inset: 0;
+  background-color: #1B1B1B;
   background-size: cover;
   background-position: center;
 }
@@ -332,6 +334,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     min-height: calc(100vh);
     margin-top: -70px;
     padding-top: 70px;
+    background: #1B1B1B;
   }
   .hero-video { display: none; }
   .hero-bg-mobile { display: block; }
