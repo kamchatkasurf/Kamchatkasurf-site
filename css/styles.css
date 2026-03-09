@@ -194,13 +194,11 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     top: 0;
     left: 0;
     right: 0;
-    padding: 0.5rem 0;
+    padding: calc(0.5rem + env(safe-area-inset-top, 0)) 0 0.5rem 0;
+    z-index: 150;
   }
   html, body {
     background: #1B1B1B !important;
-  }
-  body {
-    padding-top: 70px;
   }
   .header-logo img {
     width: 60px;
@@ -344,13 +342,24 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
 @media (max-width: 768px) {
   .hero {
-    min-height: calc(100vh);
-    margin-top: -70px;
+    min-height: 100vh;
+    min-height: 100dvh;
+    margin-top: calc(-1 * env(safe-area-inset-top, 0));
+    padding-top: env(safe-area-inset-top, 0);
     background: #1B1B1B;
   }
   .hero .hero-content {
     top: calc(50% + 35px);
     transform: translate(-50%, -50%);
+  }
+  #social-proof,
+  #philosophy,
+  #programs,
+  #reviews,
+  #team,
+  #gallery,
+  #form-section {
+    scroll-margin-top: 80px;
   }
   .hero-video { display: none; }
   .hero-bg-mobile { display: none; }
