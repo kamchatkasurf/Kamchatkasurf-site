@@ -203,9 +203,6 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   body {
     padding-top: 0;
   }
-  .hero {
-    display: none !important;
-  }
   .header-logo img {
     width: 60px;
   }
