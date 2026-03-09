@@ -149,6 +149,21 @@
     if (revPrev) revPrev.addEventListener('click', function () { revGoTo(revCurrentPage - 1); });
     if (revNext) revNext.addEventListener('click', function () { revGoTo(revCurrentPage + 1); });
 
+    // Touch swipe for mobile
+    var touchStartX = 0;
+    var touchEndX = 0;
+    reviewsCarousel.addEventListener('touchstart', function (e) {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+    reviewsCarousel.addEventListener('touchend', function (e) {
+      touchEndX = e.changedTouches[0].screenX;
+      var diff = touchStartX - touchEndX;
+      if (Math.abs(diff) > 50) {
+        if (diff > 0) revGoTo(revCurrentPage + 1);
+        else revGoTo(revCurrentPage - 1);
+      }
+    }, { passive: true });
+
     buildDots();
     revGoTo(0);
 
