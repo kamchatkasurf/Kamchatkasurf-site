@@ -349,8 +349,8 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 @media (max-width: 1024px) {
   .hero {
     min-height: 0;
-    height: 65vh;
-    height: 65dvh;
+    height: auto;
+    aspect-ratio: 3 / 4;
     background: #1B1B1B;
   }
   .hero-media { display: none; }
@@ -358,6 +358,8 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   .hero-bg-img-mobile {
     display: block;
     z-index: 0;
+    object-fit: cover;
+    object-position: center;
   }
   .hero-content {
     z-index: 1;
