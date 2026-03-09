@@ -188,7 +188,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   opacity: 0.8;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .site-header {
     position: fixed;
     top: 0;
@@ -203,6 +203,9 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   body {
     padding-top: 0;
   }
+}
+
+@media (max-width: 768px) {
   .header-logo img {
     width: 60px;
   }
@@ -343,6 +346,30 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   letter-spacing: 0.25em;
 }
 
+@media (max-width: 1024px) {
+  .hero {
+    min-height: 0;
+    height: 65vh;
+    height: 65dvh;
+    background: #1B1B1B;
+  }
+  .hero-media { display: none; }
+  .hero-bg-mobile { display: none; }
+  .hero-bg-img-mobile {
+    display: block;
+    z-index: 0;
+  }
+  .hero-content {
+    z-index: 1;
+    top: calc(50% + 25px);
+  }
+  .hero-icon { width: 150px; }
+  .hero-title {
+    white-space: normal;
+    font-size: 1.8rem;
+  }
+}
+
 @media (max-width: 768px) {
   #social-proof,
   #philosophy,
@@ -352,16 +379,6 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   #gallery,
   #form-section {
     scroll-margin-top: 70px;
-  }
-  .hero-video { display: none; }
-  .hero-bg-mobile { display: none; }
-  .hero-bg-img-mobile { display: block; }
-  .hero-icon {
-    width: 150px;
-  }
-  .hero-title {
-    white-space: normal;
-    font-size: 1.8rem;
   }
 }
 

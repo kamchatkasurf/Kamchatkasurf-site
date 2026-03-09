@@ -1,14 +1,6 @@
 (function () {
   'use strict';
 
-  // ----- Удалить hero из DOM на мобильных (серая полоса) -----
-  if (window.matchMedia('(max-width: 1024px)').matches) {
-    var hero = document.getElementById('hero');
-    if (hero && hero.parentNode) hero.parentNode.removeChild(hero);
-    var logoLink = document.querySelector('.header-logo');
-    if (logoLink) logoLink.setAttribute('href', '#social-proof');
-  }
-
   // ----- Smooth scroll for all internal links -----
   document.querySelectorAll('a[href^="#"]').forEach(function (link) {
     link.addEventListener('click', function (e) {
