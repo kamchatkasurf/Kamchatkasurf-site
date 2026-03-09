@@ -392,6 +392,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     transform: translateX(-50%);
     margin: 0;
     color: #1B1B1B;
+    white-space: nowrap;
   }
 }
 
