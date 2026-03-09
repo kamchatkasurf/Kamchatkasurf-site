@@ -405,7 +405,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   }
   .hero-subtitle {
     position: absolute;
-    top: 55%;
+    top: 72%;
     left: 50%;
     transform: translateX(-50%);
     margin: 0;
